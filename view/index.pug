@@ -1,0 +1,41 @@
+html
+    head
+        title=titulo
+        link(rel="stylesheet", href="style.css")
+        link(rel="preconnect", href="https://fonts.googleapis.com")
+        link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
+        link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Pacifico&display=swap")
+        link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css")
+    body 
+        nav
+            div.div-titulo
+                div(id='btn-toogle')
+                    i(class='bi bi-journal-plus')
+                h1.titulo=titulo
+            div.div-agregar
+                input(type="text" placeholder="nombre" id="nombre")
+                input(type="tel" placeholder="numero" id="numero")
+                input(type="email" placeholder="correo" id="correo")
+                button(id='btn-agregar') Agregar Contacto
+        div.container
+           
+            each contacto in contactos
+                div.div-contacto
+                    div 
+                        input(type="text" class=`input-1 form-${contacto.id_contacto}` value=`${contacto.nombre_contacto}` disabled)
+                        div.div-actions
+                            span(class=`editar-contacto i-${contacto.id_contacto}` id=contacto.id_contacto) 
+                                i(class=`bi bi-pencil-fill`)
+                            span(class=`borrar-contacto i-${contacto.id_contacto}` id=contacto.id_contacto)
+                                i(class=`bi bi-x-square-fill`)
+                            span(class=`eviar-cambios i-${contacto.id_contacto} icon-hidden` id=contacto.id_contacto) 
+                                i(class=`bi bi-check-square`)
+                            span(class=`cancelar-cambios i-${contacto.id_contacto} icon-hidden` id=contacto.id_contacto)
+                                i(class=`bi bi-x-square`)
+                    div 
+                        i(class='bi bi-telephone-fill icono-card')
+                        input(type="text" class=`input-2 form-${contacto.id_contacto}` value=`${contacto.numero_contacto}` disabled)
+                    div
+                        i(class='bi bi-envelope-fill icono-card')
+                        input(type="text" class=`input-2 form-${contacto.id_contacto}` value=`${contacto.correo_contacto}` disabled)
+    script(src="functions.js")
