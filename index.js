@@ -1,10 +1,5 @@
 import  express  from "express";    //importar express
-import path from "path";
-import { fileURLToPath } from 'url';
 import { connect, agregarContacto, obtenerContactos, borrarContacto, editarContacto } from "./src/mysql_connector.js";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 const app = express();  //iniciar express
 
